@@ -1,12 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>TravelWise</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelWise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #2d3e50, #1c2733);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        header h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        section {
+            background: white;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-top: 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        a {
+            color: #0073e6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #555;
+        }
+        .emoji {
+            font-size: 20px;
+            margin-right: 5px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Welcome to TravelWise</h1>
-  <p>TravelWise is your smart travel companion — track expenses, plan itineraries, and explore with ease.</p>
-  <p><a href="privacy.html">Privacy Policy</a></p>
+
+<header>
+    <div style="font-size:50px;">✈️</div>
+    <h1>TravelWise</h1>
+    <p>Your smart travel companion.</p>
+</header>
+
+<section>
+    <p>TravelWise is an app designed to help you organize your trips in a simple, visual, and practical way.</p>
+</section>
+
+<section>
+    <h2>Features</h2>
+    <ul>
+        <li>Create and manage trips</li>
+        <li>Log expenses by category and currency</li>
+        <li>Plan your itinerary with points of interest</li>
+        <li>View trip details with photos</li>
+        <li>Track your spending in real time</li>
+    </ul>
+</section>
+
+<section>
+    <h2><span class="emoji">📱</span>Available for Android</h2>
+    <p><a href="https://play.google.com/store/apps/details?id=com.osw.travelwise" target="_blank">
+        Download on Google Play
+    </a></p>
+</section>
+
+<section>
+    <h2><span class="emoji">🔒</span>Privacy & Security</h2>
+    <p>TravelWise cares about your privacy and data security. All data is securely stored using Firebase Authentication and Firestore.</p>
+    <ul>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+    </ul>
+</section>
+
+<section>
+    <h2><span class="emoji">📬</span>Contact</h2>
+    <p>Have suggestions or found a bug?<br>
+       Email us: <a href="mailto:oswtraveladm@gmail.com">oswtraveladm@gmail.com</a></p>
+</section>
+
+<footer>
+    🌍 Developed with ❤️ by OUR SMALL WORLD
+</footer>
+
 </body>
 </html>
