@@ -165,7 +165,7 @@
 
     window.onload = () => {
       const start = Date.now();
-      const deepLink = "com.osw.travelwise://reset-password?oobCode=${encodeURIComponent(oobCode)}";
+      const deepLink = "com.osw.travelwise://reset-password?oobCode=" + oobCode;
       window.location.href = deepLink;
       
       setTimeout(() => {
