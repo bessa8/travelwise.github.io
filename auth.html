@@ -166,15 +166,7 @@
     window.onload = () => {
       const start = Date.now();
       const deepLink = `intent://www.travelwise.top/reset-password?oobCode=${oobCode}#Intent;scheme=https;package=com.osw.travelwise;end`;
-      window.location.href = deepLink;
-      
-      setTimeout(() => {
-        // If after 1.5s the user didn't leave page, assume app is not installed
-        if (Date.now() - start < fallbackTimeout + 100) {
-          appOpened = false;
-          showResetForm(); // show web fallback
-        }
-      }, fallbackTimeout);
+      window.location = deepLink;
     }
     function showResetForm() {
       const card = document.getElementById('card');
