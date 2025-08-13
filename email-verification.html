@@ -107,14 +107,16 @@
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
 <script>
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getAuth, applyActionCode } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
   // Your Firebase config
   const firebaseConfig = {
     apiKey: "AIzaSyBt9jM__UX3bEIpQeX-ysuXaFvAL8N5StQ",
     authDomain: "travelwise-8e959.firebaseapp.com",
     projectId: "travelwise-8e959"
   };
-  const app = firebase.initializeApp(firebaseConfig);
-  const auth = firebase.getAuth(app);
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
 
   const params = new URLSearchParams(window.location.search);
   const oobCode = params.get('oobCode');
@@ -122,7 +124,7 @@
   const card = document.getElementById('card');
 
   if (oobCode) {
-    firebase.applyActionCode(auth, oobCode)
+    applyActionCode(auth, oobCode)
       .then(() => {
         card.innerHTML = `
           <h1>Email Verified 🎉</h1>
