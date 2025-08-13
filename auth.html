@@ -165,7 +165,7 @@
 
     window.onload = () => {
       const start = Date.now();
-      window.location = "travelwise://reset-password?oobCode=${encodeURIComponent(oobCode)}";
+      window.location = "com.osw.travelwise://reset-password?oobCode=${encodeURIComponent(oobCode)}";
 
       setTimeout(() => {
         // If after 1.5s the user didn't leave page, assume app is not installed
