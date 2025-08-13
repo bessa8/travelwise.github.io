@@ -5,7 +5,8 @@
       "namespace": "android_app",
       "package_name": "com.osw.travelwise",
       "sha256_cert_fingerprints": [
-        "77:45:9A:E2:FB:A3:B8:E3:AE:8D:24:E3:A2:53:88:1C:E8:54:32:D9:BE:FC:FA:43:B9:C4:5F:67:A5:A5:AE:EB"
+        "77:45:9A:E2:FB:A3:B8:E3:AE:8D:24:E3:A2:53:88:1C:E8:54:32:D9:BE:FC:FA:43:B9:C4:5F:67:A5:A5:AE:EB",
+        "D1:56:25:24:64:DA:45:07:D0:39:D7:47:42:F2:16:73:1B:44:60:98:54:71:C8:83:C6:FA:1E:DE:58:0A:E4:7E"
       ]
     }
   }
