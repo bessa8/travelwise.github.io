@@ -160,14 +160,16 @@
   } else if (mode === 'resetPassword') {
     document.title = "Reset Password - TravelWise";
 
+    window.location = "intent://www.travelwise.top/#Intent;scheme=https;package=com.osw.travelwise;end"
+
     const fallbackTimeout = 1500;
     let appOpened = false;
 
-    window.onload = () => {
-      const start = Date.now();
-      const deepLink = "intent://www.travelwise.top/reset-password?oobCode=${oobCode}#Intent;scheme=https;package=com.osw.travelwise;end";
-      window.location = deepLink;
-    }
+    //window.onload = () => {
+    //  const start = Date.now();
+    //  const deepLink = "intent://www.travelwise.top/reset-password?oobCode=${oobCode}#Intent;scheme=https;package=com.osw.travelwise;end";
+    //  window.location = deepLink;
+    //}
     function showResetForm() {
       const card = document.getElementById('card');
       card.innerHTML = `
