@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Email Verification - TravelWise</title>
+<title>TravelWise</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -99,9 +99,9 @@
 <body>
 
 <div class="card" id="card">
-  <h1>Verifying Your Email...</h1>
+  <h1>Processing...</h1>
   <div class="loading-spinner"></div>
-  <p>Please wait while we confirm your account.</p>
+  <p>Please wait while we process your request.</p>
 </div>
 
 <!-- Firebase SDK -->
@@ -109,7 +109,7 @@
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-  import { getAuth, applyActionCode } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+  import { getAuth, applyActionCode, confirmPasswordReset } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
   // Your Firebase config
   const firebaseConfig = {
     apiKey: "AIzaSyBt9jM__UX3bEIpQeX-ysuXaFvAL8N5StQ",
@@ -121,10 +121,25 @@
 
   const params = new URLSearchParams(window.location.search);
   const oobCode = params.get('oobCode');
+  const mode = params.get('mode');
 
   const card = document.getElementById('card');
+  const appLink = "intent://www.travelwise.top/#Intent;scheme=https;package=com.osw.travelwise;end";
 
-  if (oobCode) {
+  if (!oobCode || !mode) {
+    card.innerHTML = `
+      <h1>Invalid Link</h1>
+      <div class="status-icon error">✖</div>
+      <p>No valid action found in the URL.</p>
+      <a href="${appLink}" class="btn">Return to TravelWise</a>
+    `;
+  } else if (mode === 'verifyEmail') {
+    document.title = "Email Verification - TravelWise";
+    card.innerHTML = `
+      <h1>Verifying Your Email...</h1>
+      <div class="loading-spinner"></div>
+      <p>Please wait while we confirm your account.</p>
+    `;
     applyActionCode(auth, oobCode)
       .then(() => {
         card.innerHTML = `
@@ -142,12 +157,77 @@
           <a href="intent://www.travelwise.top/#Intent;scheme=https;package=com.osw.travelwise;end" id="openApp" class="btn">Return to TravelWise</a>
         `;
       });
+  } else if (mode === 'resetPassword') {
+    document.title = "Reset Password - TravelWise";
+
+    const fallbackTimeout = 1500;
+    let appOpened = false;
+
+    window.onload = () => {
+      const start = Date.now();
+      window.location = "travelwise://reset-password?oobCode=${encodeURIComponent(oobCode)}";
+
+      setTimeout(() => {
+        // If after 1.5s the user didn't leave page, assume app is not installed
+        if (Date.now() - start < fallbackTimeout + 100) {
+          appOpened = false;
+          showResetForm(); // show web fallback
+        }
+      }, fallbackTimeout);
+    }
+    function showResetForm() {
+      const card = document.getElementById('card');
+      card.innerHTML = `
+        <h1>Reset Your Password</h1>
+        <p>Set a new password for your account.</p>
+        <input type="password" id="newPassword" placeholder="New password" /><br/><br/>
+        <input type="password" id="confirmPassword" placeholder="Confirm password" /><br/><br/>
+        <button onclick="resetPassword()">Submit</button>
+        <div id="status"></div>
+      `;
+    }
+
+    function resetPassword() {
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const status = document.getElementById('status');
+
+      if (!newPassword || !confirmPassword) {
+        status.innerText = "Please fill both fields.";
+        return;
+      }
+      if (newPassword !== confirmPassword) {
+        status.innerText = "Passwords do not match.";
+        return;
+      }
+
+      // Use Firebase to confirm the password reset
+      confirmPasswordReset(auth, oobCode, newPassword)
+        .then(() => {
+          card.innerHTML = `
+            <h1>Password Reset 🎉</h1>
+            <div class="status-icon success">✔</div>
+            <p>Your password has been successfully updated.</p>
+            <a href="${appLink}" class="btn">Open TravelWise</a>
+          `;
+        })
+        .catch((error) => {
+          card.innerHTML = `
+            <h1>Reset Failed</h1>
+            <div class="status-icon error">✖</div>
+            <p>The link may have expired or is invalid.</p>
+            <a href="${appLink}" class="btn">Return to TravelWise</a>
+          `;
+        });
+    }
   } else {
+    document.title = "TravelWise";
+
     card.innerHTML = `
-      <h1>Invalid Link</h1>
+      <h1>Unknown Action</h1>
       <div class="status-icon error">✖</div>
-      <p>No verification code found in the URL.</p>
-      <a href="intent://www.travelwise.top/#Intent;scheme=https;package=com.osw.travelwise;end" id="openApp" class="btn">Return to TravelWise</a>
+      <p>This action is not supported.</p>
+      <a href="${appLink}" class="btn">Return to TravelWise</a>
     `;
   }
 </script>
