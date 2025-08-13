@@ -165,8 +165,9 @@
 
     window.onload = () => {
       const start = Date.now();
-      window.location = "com.osw.travelwise://reset-password?oobCode=${encodeURIComponent(oobCode)}";
-
+      const deepLink = "com.osw.travelwise://reset-password?oobCode=${encodeURIComponent(oobCode)}";
+      window.location.href = deepLink;
+      
       setTimeout(() => {
         // If after 1.5s the user didn't leave page, assume app is not installed
         if (Date.now() - start < fallbackTimeout + 100) {
