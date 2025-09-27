@@ -146,7 +146,7 @@
           <h1>Email Verified 🎉</h1>
           <div class="status-icon success">✔</div>
           <p>Your email has been successfully verified. You can now log in to TravelWise.</p>
-          <a href="intent://www.travelwise.top/#Intent;scheme=https;package=com.osw.travelwise;end" id="openApp" class="btn">Go to TravelWise</a>
+          <a href="intent:///#Intent;scheme=app;package=com.osw.travelwise;end" id="openApp" class="btn">Go to TravelWise</a>
         `;
       })
       .catch((error) => {
@@ -154,7 +154,7 @@
           <h1>Verification Failed</h1>
           <div class="status-icon error">✖</div>
           <p>We could not verify your email. This link may have expired or been used already.</p>
-          <a href="intent://www.travelwise.top/#Intent;scheme=https;package=com.osw.travelwise;end" id="openApp" class="btn">Return to TravelWise</a>
+          <a href="intent:///#Intent;scheme=app;package=com.osw.travelwise;end" id="openApp" class="btn">Return to TravelWise</a>
         `;
       });
   } else if (mode === 'resetPassword') {
