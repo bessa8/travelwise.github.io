@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["TEAMID.com.example.travelwise"],
+        "components": [
+          { "/": "/auth/callback", "comment": "Supabase auth deep link" },
+          { "/": "/auth/callback/*" },
+          { "/": "/i/*", "comment": "Trip invite links" }
+        ]
+      }
+    ]
+  }
+}
