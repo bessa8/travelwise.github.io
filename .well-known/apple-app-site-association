@@ -2,7 +2,7 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["TEAMID.com.example.travelwise"],
+        "appIDs": ["V84ZPU33SN.com.osw.travelwise"],
         "components": [
           { "/": "/auth/callback", "comment": "Supabase auth deep link" },
           { "/": "/auth/callback/*" },
