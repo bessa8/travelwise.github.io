@@ -6,7 +6,8 @@
         "components": [
           { "/": "/auth/callback", "comment": "Supabase auth deep link" },
           { "/": "/auth/callback/*" },
-          { "/": "/i/*", "comment": "Trip invite links" }
+          { "/": "/i/*", "comment": "Trip invite links" },
+          { "/": "/reset-password", "comment": "Reset Password link" }
         ]
       }
     ]
