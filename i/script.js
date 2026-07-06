@@ -2,7 +2,7 @@
   "use strict";
 
   var CODE_RE = /^[A-Za-z0-9_-]{6,40}$/;
-  var APP_STORE_ID = "<APP_STORE_ID>"; // FILL IN
+  var APP_STORE_ID = "6770280880"; // FILL IN
 
   function extractCode() {
     // Primary source: trailing path segment of /i/<code>
