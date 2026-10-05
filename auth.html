@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/i18n.js"></script>
 <script>try{var t=localStorage.getItem("tw-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <title>TravelWise</title>
 </head>
@@ -18,9 +19,10 @@
 
 <main class="auth-card" id="card">
   <a class="brand" href="/"><img src="/assets/img/logo-96.png" width="36" height="36" alt=""><span>Travel<i>Wise</i></span></a>
-  <h1>Processing...</h1>
+  <h1 data-pt="A processar...">Processing...</h1>
   <div class="loading-spinner"></div>
-  <p>Please wait while we process your request.</p>
+  <p data-pt="Aguarda enquanto processamos o teu pedido.">Please wait while we process your request.</p>
+  <p class="small"><button class="lang" type="button" data-lang-toggle aria-label="Versão em português">PT</button></p>
 </main>
 
 <!-- Firebase SDK -->
@@ -46,37 +48,37 @@
 
   if (!oobCode || !mode) {
     card.innerHTML = BRAND + `
-      <h1>Invalid Link</h1>
+      <h1>${TW.t("Invalid Link","Link inválido")}</h1>
       <div class="status-icon error">✖</div>
-      <p>No valid action found in the URL.</p>
-      <a href="${appLink}" class="btn">Return to TravelWise</a>
+      <p>${TW.t("No valid action found in the URL.","Não foi encontrada nenhuma ação válida no link.")}</p>
+      <a href="${appLink}" class="btn">${TW.t("Return to TravelWise","Voltar ao TravelWise")}</a>
     `;
   } else if (mode === 'verifyEmail') {
-    document.title = "Email Verification - TravelWise";
+    document.title = TW.t("Email Verification", "Verificação de email") + " - TravelWise";
     card.innerHTML = BRAND + `
-      <h1>Verifying Your Email...</h1>
+      <h1>${TW.t("Verifying Your Email...","A verificar o teu email...")}</h1>
       <div class="loading-spinner"></div>
-      <p>Please wait while we confirm your account.</p>
+      <p>${TW.t("Please wait while we confirm your account.","Aguarda enquanto confirmamos a tua conta.")}</p>
     `;
     applyActionCode(auth, oobCode)
       .then(() => {
         card.innerHTML = BRAND + `
-          <h1>Email Verified 🎉</h1>
+          <h1>${TW.t("Email Verified 🎉","Email verificado 🎉")}</h1>
           <div class="status-icon success">✔</div>
-          <p>Your email has been successfully verified. You can now log in to TravelWise.</p>
-          <a href="intent:///#Intent;scheme=app;package=com.osw.travelwise;end" id="openApp" class="btn">Go to TravelWise</a>
+          <p>${TW.t("Your email has been successfully verified. You can now log in to TravelWise.","O teu email foi verificado. Já podes iniciar sessão no TravelWise.")}</p>
+          <a href="intent:///#Intent;scheme=app;package=com.osw.travelwise;end" id="openApp" class="btn">${TW.t("Go to TravelWise","Ir para o TravelWise")}</a>
         `;
       })
       .catch((error) => {
         card.innerHTML = BRAND + `
-          <h1>Verification Failed</h1>
+          <h1>${TW.t("Verification Failed","Falha na verificação")}</h1>
           <div class="status-icon error">✖</div>
-          <p>We could not verify your email. This link may have expired or been used already.</p>
-          <a href="intent:///#Intent;scheme=app;package=com.osw.travelwise;end" class="btn">Return to TravelWise</a>
+          <p>${TW.t("We could not verify your email. This link may have expired or been used already.","Não foi possível verificar o teu email. Este link pode ter expirado ou já ter sido usado.")}</p>
+          <a href="intent:///#Intent;scheme=app;package=com.osw.travelwise;end" class="btn">${TW.t("Return to TravelWise","Voltar ao TravelWise")}</a>
         `;
       });
   } else if (mode === 'resetPassword') {
-    document.title = "Reset Password - TravelWise";
+    document.title = TW.t("Reset Password", "Redefinir palavra-passe") + " - TravelWise";
 
     const fallbackTimeout = 1500;
     let appOpened = false;
@@ -87,10 +89,10 @@
       const fallbackUrl = `https://www.travelwise.pt/reset-password?oobCode=${oobCode}`;
 
       card.innerHTML = BRAND + `
-        <h1>Open TravelWise App</h1>
-        <p>Click below to open the app or continue on the web.</p>
-        <a href="${deepLink}" class="btn">Open App</a><br/><br/>
-        <a href="${fallbackUrl}" class="btn">Continue in Browser</a>
+        <h1>${TW.t("Open TravelWise App","Abrir a app TravelWise")}</h1>
+        <p>${TW.t("Click below to open the app or continue on the web.","Toca abaixo para abrir a app ou continuar no browser.")}</p>
+        <a href="${deepLink}" class="btn">${TW.t("Open App","Abrir a app")}</a><br/><br/>
+        <a href="${fallbackUrl}" class="btn">${TW.t("Continue in Browser","Continuar no browser")}</a>
       `;
     }
     function showResetForm() {
@@ -123,18 +125,18 @@
       confirmPasswordReset(auth, oobCode, newPassword)
         .then(() => {
           card.innerHTML = BRAND + `
-            <h1>Password Reset 🎉</h1>
+            <h1>${TW.t("Password Reset 🎉","Palavra-passe redefinida 🎉")}</h1>
             <div class="status-icon success">✔</div>
-            <p>Your password has been successfully updated.</p>
-            <a href="${appLink}" class="btn">Open TravelWise</a>
+            <p>${TW.t("Your password has been successfully updated.","A tua palavra-passe foi atualizada.")}</p>
+            <a href="${appLink}" class="btn">${TW.t("Open TravelWise","Abrir o TravelWise")}</a>
           `;
         })
         .catch((error) => {
           card.innerHTML = BRAND + `
-            <h1>Reset Failed</h1>
+            <h1>${TW.t("Reset Failed","Falha ao redefinir")}</h1>
             <div class="status-icon error">✖</div>
-            <p>The link may have expired or is invalid.</p>
-            <a href="${appLink}" class="btn">Return to TravelWise</a>
+            <p>${TW.t("The link may have expired or is invalid.","O link pode ter expirado ou ser inválido.")}</p>
+            <a href="${appLink}" class="btn">${TW.t("Return to TravelWise","Voltar ao TravelWise")}</a>
           `;
         });
     }
@@ -142,10 +144,10 @@
     document.title = "TravelWise";
 
     card.innerHTML = BRAND + `
-      <h1>Unknown Action</h1>
+      <h1>${TW.t("Unknown Action","Ação desconhecida")}</h1>
       <div class="status-icon error">✖</div>
-      <p>This action is not supported.</p>
-      <a href="${appLink}" class="btn">Return to TravelWise</a>
+      <p>${TW.t("This action is not supported.","Esta ação não é suportada.")}</p>
+      <a href="${appLink}" class="btn">${TW.t("Return to TravelWise","Voltar ao TravelWise")}</a>
     `;
   }
 </script>

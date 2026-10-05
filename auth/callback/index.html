@@ -11,16 +11,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/assets/css/site.css">
+<script src="/assets/js/i18n.js"></script>
 <script>try{var t=localStorage.getItem("tw-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
-<title>Opening TravelWise…</title>
+<title>TravelWise</title>
 </head>
 <body class="center-page">
   <main class="auth-card">
     <a class="brand" href="/"><img src="/assets/img/logo-96.png" width="36" height="36" alt=""><span>Travel<i>Wise</i></span></a>
-    <h1 id="title">Opening TravelWise…</h1>
-    <p id="message">If the app doesn't open automatically, tap the button below.</p>
-    <a id="open" class="btn" href="#">Open TravelWise</a>
-    <p class="small">Make sure TravelWise is installed on this device.</p>
+    <h1 id="title" data-pt="A abrir o TravelWise…">Opening TravelWise…</h1>
+    <p id="message" data-pt="Se a app não abrir automaticamente, toca no botão abaixo.">If the app doesn't open automatically, tap the button below.</p>
+    <a id="open" class="btn" href="#" data-pt="Abrir o TravelWise">Open TravelWise</a>
+    <p class="small" data-pt="Confirma que o TravelWise está instalado neste dispositivo.">Make sure TravelWise is installed on this device.</p>
+    <p class="small"><button class="lang" type="button" data-lang-toggle aria-label="Versão em português">PT</button></p>
   </main>
 
 <script>
@@ -42,8 +44,10 @@
   );
   var err = params.get("error_description") || params.get("error");
   if (err) {
-    document.getElementById("title").textContent = "Couldn't complete sign-in";
+    document.getElementById("title").textContent = TW.t("Couldn't complete sign-in", "Não foi possível concluir o início de sessão");
     document.getElementById("title").classList.add("err");
+    document.getElementById("title").removeAttribute("data-pt");
+    document.getElementById("message").removeAttribute("data-pt");
     document.getElementById("message").textContent = decodeURIComponent(err);
     return;
   }
