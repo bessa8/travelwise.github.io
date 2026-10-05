@@ -1,112 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#F5F1E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1620" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>try{var t=localStorage.getItem("tw-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <title>TravelWise</title>
-<link rel="icon" type="image/png" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #f9fafb;
-    --card-bg: #ffffff;
-    --text: #1f2937;
-    --success: #10b981;
-    --error: #ef4444;
-    --primary: #3b82f6;
-  }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
-  }
-
-  .card {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-    animation: fadeIn 0.5s ease;
-  }
-
-  h1 {
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    color: #4b5563;
-    font-size: 0.95rem;
-  }
-
-  .loading-spinner {
-    border: 4px solid #e5e7eb;
-    border-top: 4px solid var(--primary);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 0.8s linear infinite;
-    margin: 1rem auto;
-  }
-
-  .status-icon {
-    font-size: 3rem;
-    margin: 1rem 0;
-  }
-
-  .success {
-    color: var(--success);
-  }
-
-  .error {
-    color: var(--error);
-  }
-
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .btn {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    padding: 0.6rem 1.2rem;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    margin-top: 1rem;
-    transition: background 0.2s ease;
-  }
-
-  .btn:hover {
-    background: #2563eb;
-  }
-</style>
 </head>
-<body>
+<body class="center-page">
 
-<div class="card" id="card">
+<main class="auth-card" id="card">
+  <a class="brand" href="/"><img src="/assets/img/logo-96.png" width="36" height="36" alt=""><span>Travel<i>Wise</i></span></a>
   <h1>Processing...</h1>
   <div class="loading-spinner"></div>
   <p>Please wait while we process your request.</p>
-</div>
+</main>
 
 <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
   import { getAuth, applyActionCode, confirmPasswordReset } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
@@ -124,10 +41,11 @@
   const mode = params.get('mode');
 
   const card = document.getElementById('card');
-  const appLink = "intent://www.travelwise.top/#Intent;scheme=https;package=com.osw.travelwise;end";
+  const BRAND = '<a class="brand" href="/"><img src="/assets/img/logo-96.png" width="36" height="36" alt=""><span>Travel<i>Wise</i></span></a>';
+  const appLink = "intent://www.travelwise.pt/#Intent;scheme=https;package=com.osw.travelwise;end";
 
   if (!oobCode || !mode) {
-    card.innerHTML = `
+    card.innerHTML = BRAND + `
       <h1>Invalid Link</h1>
       <div class="status-icon error">✖</div>
       <p>No valid action found in the URL.</p>
@@ -135,14 +53,14 @@
     `;
   } else if (mode === 'verifyEmail') {
     document.title = "Email Verification - TravelWise";
-    card.innerHTML = `
+    card.innerHTML = BRAND + `
       <h1>Verifying Your Email...</h1>
       <div class="loading-spinner"></div>
       <p>Please wait while we confirm your account.</p>
     `;
     applyActionCode(auth, oobCode)
       .then(() => {
-        card.innerHTML = `
+        card.innerHTML = BRAND + `
           <h1>Email Verified 🎉</h1>
           <div class="status-icon success">✔</div>
           <p>Your email has been successfully verified. You can now log in to TravelWise.</p>
@@ -150,7 +68,7 @@
         `;
       })
       .catch((error) => {
-        card.innerHTML = `
+        card.innerHTML = BRAND + `
           <h1>Verification Failed</h1>
           <div class="status-icon error">✖</div>
           <p>We could not verify your email. This link may have expired or been used already.</p>
@@ -165,10 +83,10 @@
 
     window.onload = () => {
       const start = Date.now();
-      const deepLink = `intent://www.travelwise.top/reset-password?oobCode=${oobCode}#Intent;scheme=https;package=com.osw.travelwise;end`;
-      const fallbackUrl = `https://www.travelwise.top/reset-password?oobCode=${oobCode}`;
+      const deepLink = `intent://www.travelwise.pt/reset-password?oobCode=${oobCode}#Intent;scheme=https;package=com.osw.travelwise;end`;
+      const fallbackUrl = `https://www.travelwise.pt/reset-password?oobCode=${oobCode}`;
 
-      card.innerHTML = `
+      card.innerHTML = BRAND + `
         <h1>Open TravelWise App</h1>
         <p>Click below to open the app or continue on the web.</p>
         <a href="${deepLink}" class="btn">Open App</a><br/><br/>
@@ -177,7 +95,7 @@
     }
     function showResetForm() {
       const card = document.getElementById('card');
-      card.innerHTML = `
+      card.innerHTML = BRAND + `
         <h1>Reset Your Password</h1>
         <p>Set a new password for your account.</p>
         <input type="password" id="newPassword" placeholder="New password" /><br/><br/>
@@ -204,7 +122,7 @@
       // Use Firebase to confirm the password reset
       confirmPasswordReset(auth, oobCode, newPassword)
         .then(() => {
-          card.innerHTML = `
+          card.innerHTML = BRAND + `
             <h1>Password Reset 🎉</h1>
             <div class="status-icon success">✔</div>
             <p>Your password has been successfully updated.</p>
@@ -212,7 +130,7 @@
           `;
         })
         .catch((error) => {
-          card.innerHTML = `
+          card.innerHTML = BRAND + `
             <h1>Reset Failed</h1>
             <div class="status-icon error">✖</div>
             <p>The link may have expired or is invalid.</p>
@@ -223,7 +141,7 @@
   } else {
     document.title = "TravelWise";
 
-    card.innerHTML = `
+    card.innerHTML = BRAND + `
       <h1>Unknown Action</h1>
       <div class="status-icon error">✖</div>
       <p>This action is not supported.</p>

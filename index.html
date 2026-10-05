@@ -1,112 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-PT">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelWise</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f8f8f8;
-            color: #333;
-        }
-        header {
-            background: linear-gradient(135deg, #2d3e50, #1c2733);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-        header h1 {
-            font-size: 48px;
-            margin: 0;
-        }
-        header p {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-        section {
-            background: white;
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            margin-top: 0;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        a {
-            color: #0073e6;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            color: #555;
-        }
-        .emoji {
-            font-size: 20px;
-            margin-right: 5px;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TravelWise · Rota, roteiro e despesas numa só viagem</title>
+<meta name="description" content="App de viagens para iOS e Android: viagens com várias cidades, roteiro por dias, despesas divididas, diário e partilha. AI de roteiros opcional, com créditos.">
+<link rel="canonical" href="https://www.travelwise.pt/">
+<meta name="theme-color" content="#F5F1E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1620" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TravelWise">
+<meta property="og:title" content="TravelWise · Rota, roteiro e despesas numa só viagem">
+<meta property="og:description" content="App de viagens para iOS e Android: viagens com várias cidades, roteiro por dias, despesas divididas, diário e partilha.">
+<meta property="og:url" content="https://www.travelwise.pt/">
+<meta property="og:locale" content="pt_PT">
+<meta name="apple-itunes-app" content="app-id=6770280880">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script>try{var t=localStorage.getItem("tw-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script src="assets/js/site.js" defer></script>
 </head>
 <body>
-
-<header>
-    <div style="font-size:50px;">✈️</div>
-    <h1>TravelWise</h1>
-    <p>Your smart travel companion.</p>
+<a class="skip" href="#main">Saltar para o conteúdo</a>
+<header class="site-header">
+<div class="wrap">
+<a class="brand" href="./"><img src="assets/img/logo-96.png" width="36" height="36" alt=""><span>Travel<i>Wise</i></span></a>
+<nav class="nav" aria-label="Principal">
+<ul class="nav-links" id="nav-links"><li><a href="#funcionalidades">A app</a></li><li><a href="#ai">AI</a></li><li><a href="privacy.html">Privacidade</a></li><li><a href="mailto:oswtraveladm@gmail.com">Contactos</a></li></ul>
+</nav>
+<div class="tools">
+<button class="icon-btn theme-btn" type="button" aria-label="Mudar tema claro/escuro"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+<button class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+</div>
 </header>
-
-<section>
-    <p>TravelWise is an app designed to help you organize your trips in a simple, visual, and practical way.</p>
-</section>
-
-<section>
-    <h2>Features</h2>
-    <ul>
-        <li>Create and manage trips</li>
-        <li>Log expenses by category and currency</li>
-        <li>Plan your itinerary with points of interest</li>
-        <li>View trip details with photos</li>
-        <li>Track your spending in real time</li>
-    </ul>
-</section>
-
-<section>
-    <h2><span class="emoji">📱</span>Available for Android</h2>
-    <p><a href="https://play.google.com/store/apps/details?id=com.osw.travelwise" target="_blank">
-        Download on Google Play
-    </a></p>
-</section>
-
-<section>
-    <h2><span class="emoji">🔒</span>Privacy & Security</h2>
-    <p>TravelWise cares about your privacy and data security. All data is securely stored using Firebase Authentication and Firestore.</p>
-    <ul>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="termsOfUse.html">Terms of Service</a></li>
-    </ul>
-</section>
-
-<section>
-    <h2><span class="emoji">📬</span>Contact</h2>
-    <p>Have suggestions or found a bug?<br>
-       Email us: <a href="mailto:oswtraveladm@gmail.com">oswtraveladm@gmail.com</a></p>
-</section>
-
-<footer>
-    🌍 Developed with ❤️ by OUR SMALL WORLD
+<main id="main">
+<section class="hero"><div class="wrap"><div><p class="eyebrow">App de viagens para iOS e Android</p><h1>Rota, roteiro e contas. <em>Tudo na mesma viagem.</em></h1><p class="lede">O TravelWise junta o que hoje anda espalhado por notas, emails e folhas de cálculo: as cidades e as noites, o plano de cada dia e quem pagou o quê. Partilhas com quem vai contigo, e o que já abriste continua a dar sem rede.</p><div class="stores"><a class="store" href="https://apps.apple.com/app/id6770280880" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Descarregar na</small><strong>App Store</strong></span></a><a class="store" href="https://play.google.com/store/apps/details?id=com.osw.travelwise" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><span><small>Disponível no</small><strong>Google Play</strong></span></a></div><p class="note">Grátis para descarregar. A AI de roteiros é opcional e funciona com créditos.</p></div><figure class="show-figure">
+<div class="phone"><img class="shot-light" src="assets/screens/trips-pt-light.webp" width="923" height="1992" alt="Ecrã da lista de viagens do TravelWise"><img class="shot-dark" src="assets/screens/trips-pt-dark.webp" width="923" height="1992" alt="Ecrã da lista de viagens do TravelWise"></div>
+<figcaption>Ecrã da lista de viagens do TravelWise</figcaption>
+</figure></div></section>
+<section class="section" id="funcionalidades" aria-labelledby="f-h"><div class="wrap"><div class="section-head"><p class="eyebrow">O que a app faz</p><h2 id="f-h">Seis coisas que a app faz.</h2><p>Sem promessas que a app não cumpre. Isto é o que está lá hoje.</p></div><ol class="features"><li class="feature"><span class="num">01</span><h3>Viagens com várias cidades</h3><p>Monta a rota pela ordem certa, com as noites de cada cidade, como chegas (comboio, avião, autocarro, carro ou barco) e, se for o caso, o passe Interrail ou Eurail. Uma paragem de 0 noites é uma excursão de um dia.</p></li><li class="feature"><span class="num">02</span><h3>Roteiro por dias</h3><p>Cada dia é uma cronologia: pontos de interesse, refeições, horas e o caminho de uma paragem à seguinte.</p></li><li class="feature"><span class="num">03</span><h3>Despesas e divisão</h3><p>Regista gastos em qualquer moeda, divide em partes iguais ou por valores fixos, vê quem deve a quem e liquida o saldo. Podes importar extratos CSV do Revolut e do Wise.</p></li><li class="feature"><span class="num">04</span><h3>Diário de viagem</h3><p>Notas e fotografias de cada dia, guardadas com a viagem a que pertencem.</p></li><li class="feature"><span class="num">05</span><h3>Partilha com quem vai</h3><p>Convida por link ou código QR. Cada pessoa entra como colaborador, que edita, ou só para ver.</p></li><li class="feature"><span class="num">06</span><h3>AI de roteiros, por créditos</h3><p>Sugere pontos de interesse e organiza dias, com limites escritos. Mais abaixo dizemos o que faz e o que não faz.</p></li></ol><div class="showcase"><div class="show"><div class="show-text"><h3>O dia, hora a hora</h3><p>O roteiro mostra o que vem a seguir e como lá chegas. Os trajetos entre paragens aparecem no próprio dia, com o meio e a duração.</p><ul><li>Pontos de interesse, refeições e trajetos</li><li>Excursões de um dia a partir da cidade onde dormes</li><li>Mudanças de cidade no dia certo da rota</li></ul></div><figure class="show-figure">
+<div class="phone"><img class="shot-light" src="assets/screens/plan-pt-light.webp" width="923" height="1992" alt="Ecrã do roteiro de um dia em Nova Iorque, com horários e trajetos entre paragens" loading="lazy"><img class="shot-dark" src="assets/screens/plan-pt-dark.webp" width="923" height="1992" alt="Ecrã do roteiro de um dia em Nova Iorque, com horários e trajetos entre paragens" loading="lazy"></div>
+<figcaption>Ecrã do roteiro de um dia em Nova Iorque, com horários e trajetos entre paragens</figcaption>
+</figure></div><div class="show"><div class="show-text"><h3>As contas, sem discussões</h3><p>Cada despesa sabe quem pagou e entre quem se divide. No fim, a app mostra os saldos e ajuda-vos a acertá-los.</p><ul><li>Várias moedas, com conversão</li><li>Divisão igual ou por valor fixo</li><li>Importação de extratos CSV do Revolut e do Wise</li></ul></div><figure class="show-figure">
+<div class="phone"><img class="shot-light" src="assets/screens/expenses-pt-light.webp" width="923" height="1992" alt="Ecrã de despesas com total gasto por moeda e lista de despesas" loading="lazy"><img class="shot-dark" src="assets/screens/expenses-pt-dark.webp" width="923" height="1992" alt="Ecrã de despesas com total gasto por moeda e lista de despesas" loading="lazy"></div>
+<figcaption>Ecrã de despesas com total gasto por moeda e lista de despesas</figcaption>
+</figure></div></div></div></section>
+<section class="section" id="ai" aria-labelledby="ai-h"><div class="wrap"><div class="section-head"><p class="eyebrow">A AI de roteiros</p><h2 id="ai-h">O que a AI faz e não faz.</h2><p>A AI escolhe de uma lista fechada de ações, cada uma com um ecrã e um preço. Pedidos fora da lista são recusados, e a app diz-te o passo seguinte.</p></div><div class="ai-cols"><div class="ai-col"><h3><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>Faz</h3><ul><li>Sugere pontos de interesse para uma cidade, ou para todas as cidades da viagem de uma vez (um Interrail inteiro num só pedido).</li><li>Sabe onde cada cidade fica na rota: numa paragem de dois dias, fica-se pelo essencial perto do centro e da estação.</li><li>Organiza o roteiro, de um dia ou da viagem toda, com horas, refeições e o caminho de um ponto ao seguinte. Precisa de pelo menos 3 pontos de interesse.</li><li>Põe no dia certo a viagem entre cidades, pelo meio que escolheste na rota, com a duração estimada pela distância.</li><li>Durante a viagem, encontra restaurantes a poucos minutos a pé de onde estás. Sugere onde dormir num país sem cidades.</li><li>Planeia até 31 dias num só pedido.</li></ul></div><div class="ai-col no"><h3><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></span>Não faz</h3><ul><li>Não reserva nem compra nada, e não escreve no roteiro sem a tua escolha.</li><li>Não sabe horários reais de comboios ou voos, lugares livres nem os preços do dia. O que dá são estimativas, e diz que o são.</li><li>Não escolhe por ti como vais de uma cidade à outra. Sem meio escolhido, o troço fica por definir.</li><li>Não organiza sem pontos de interesse: não inventa sítios para pôr por ordem.</li><li>Não planeia mais de 31 dias, nem mais de 15 dias seguidos na mesma cidade, num só pedido.</li><li>Não responde a pedidos em texto livre. As ações acima são tudo o que há.</li></ul></div></div><div class="credits"><div><h3>Como funcionam os créditos</h3><p style="color:var(--ink-soft);margin:12px 0 0;font-size:15px">Os preços em créditos e os valores dos pacotes vêm sempre da própria app.</p></div><ol><li><span>Cada ação da AI tem um preço em créditos, que vês antes de confirmar.</span></li><li><span>Quando a geração começa, os créditos ficam retidos. No fim, só pagas o que foi entregue. Se a geração falhar, os créditos voltam para ti.</span></li><li><span>As contas novas recebem créditos de boas-vindas. Para teres mais, compras pacotes ou o Premium mensal dentro da app, através da App Store ou do Google Play.</span></li><li><span>Os créditos servem só para a AI. Tudo o resto da app funciona sem eles.</span></li></ol></div></div></section>
+<section class="section" aria-labelledby="p-h"><div class="wrap"><div class="section-head"><p class="eyebrow">Privacidade</p><h2 id="p-h">Os teus dados, em três frases.</h2></div><ul class="commit"><li><h3>Sem anúncios</h3><p>A app não tem publicidade nem SDKs de anúncios. Os dados de utilização servem para manter a app a funcionar e para a melhorar.</p></li><li><h3>Apagas tudo a partir da app</h3><p>Em Definições → Eliminar conta, a conta e os dados associados são apagados de forma permanente.</p></li><li><h3>Um site sem rastreio</h3><p>Este site não usa cookies nem analytics.</p></li></ul><div class="commit-cta"><a class="btn" href="privacy.html">Ler a Política de Privacidade<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></section>
+<section class="closing" aria-labelledby="c-h"><div class="wrap"><h2 id="c-h">Leva a próxima viagem no bolso.</h2><div class="stores"><a class="store" href="https://apps.apple.com/app/id6770280880" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Descarregar na</small><strong>App Store</strong></span></a><a class="store" href="https://play.google.com/store/apps/details?id=com.osw.travelwise" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><span><small>Disponível no</small><strong>Google Play</strong></span></a></div></div></section>
+</main>
+<footer class="site-footer">
+<div class="wrap">
+<div class="grid">
+<div>
+<a class="brand" href="./"><img src="assets/img/logo-96.png" width="36" height="36" alt="" loading="lazy"><span>Travel<i>Wise</i></span></a>
+<p class="blurb">Planeamento e gestão de viagens para iOS e Android. Rota, roteiro e despesas no mesmo sítio.</p>
+</div>
+<div>
+<h2>A app</h2>
+<ul>
+<li><a href="./">Início</a></li>
+<li><a href="https://apps.apple.com/app/id6770280880" rel="noopener">App Store</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=com.osw.travelwise" rel="noopener">Google Play</a></li>
+<li><a href="mailto:oswtraveladm@gmail.com">oswtraveladm@gmail.com</a></li>
+</ul>
+</div>
+<div>
+<h2>Legal e apoio</h2>
+<ul>
+<li><a href="privacy.html">Política de Privacidade</a></li>
+<li><a href="termsOfUse.html">Termos de Utilização</a></li>
+<li><a href="mailto:oswtraveladm@gmail.com">Contactos e suporte</a></li>
+</ul>
+</div>
+</div>
+<div class="base"><span>© 2026 OUR SMALL WORLD · TravelWise</span><span>Este site não usa cookies nem analytics.</span></div>
+</div>
 </footer>
-
 </body>
 </html>

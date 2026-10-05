@@ -1,6 +1,6 @@
 # TravelWise invite landing page
 
-Static fallback page served at `https://www.travelwise.top/i/{code}` when the
+Static fallback page served at `https://www.travelwise.pt/i/{code}` when the
 OS does not open the TravelWise app directly via Universal Links / App Links
 (app not installed, association files not yet trusted, in-app browser
 intercepts, desktop browsers, etc).
@@ -9,7 +9,7 @@ intercepts, desktop browsers, etc).
 
 ```
 /i/index.html         — canonical invite page (handles /i/ and /i/index.html)
-/i/style.css          — styles (off-white background, warm coral CTA)
+(styles live in /assets/css/site.css, shared with the main site)
 /i/script.js          — extracts code from path, fires travelwise:// scheme
 /404.html             — smart router: any /i/<code> URL renders the invite UI
                         with the original URL preserved; other unmatched paths
@@ -52,14 +52,14 @@ association file is trusted).
 ## Deployment
 
 This site is served from the `main` branch of this repo via GitHub Pages
-(custom domain `www.travelwise.top`, CNAME committed at the repo root).
+(custom domain `www.travelwise.pt`, CNAME committed at the repo root).
 Push to `main` and GH Pages will publish within ~1 minute.
 
 After the first deploy, verify:
 
 ```bash
-curl -sI https://www.travelwise.top/.well-known/apple-app-site-association | head
-curl -sI https://www.travelwise.top/.well-known/assetlinks.json | head
+curl -sI https://www.travelwise.pt/.well-known/apple-app-site-association | head
+curl -sI https://www.travelwise.pt/.well-known/assetlinks.json | head
 ```
 
 Both must return `200 OK` with `Content-Type: application/json` (GH Pages
@@ -71,12 +71,12 @@ serves JSON via the `_config.yml` `include` directive — already configured).
 
 1. Wait a few minutes after deploy, then ask Apple's CDN:
    ```bash
-   curl -s https://app-site-association.cdn-apple.com/a/v1/www.travelwise.top | jq
+   curl -s https://app-site-association.cdn-apple.com/a/v1/www.travelwise.pt | jq
    ```
    This should return the AASA JSON. Apple's CDN caches aggressively — if
    it's stale, retry after a few minutes.
 2. On a real device with TravelWise installed: paste
-   `https://www.travelwise.top/i/test123` into Notes.app, long-press, and
+   `https://www.travelwise.pt/i/test123` into Notes.app, long-press, and
    tap "Open in TravelWise". The app should open directly.
 3. If it instead opens this fallback page in Safari, force a refresh of the
    association: delete the app, reinstall, and reboot the device.
@@ -88,11 +88,11 @@ serves JSON via the `_config.yml` `include` directive — already configured).
    adb shell pm verify-app-links --re-verify com.osw.travelwise
    adb shell pm get-app-links com.osw.travelwise
    ```
-2. The output should show `www.travelwise.top` with host status `verified`.
+2. The output should show `www.travelwise.pt` with host status `verified`.
 3. Test the link:
    ```bash
    adb shell am start -a android.intent.action.VIEW \
-     -d "https://www.travelwise.top/i/test123" com.osw.travelwise
+     -d "https://www.travelwise.pt/i/test123" com.osw.travelwise
    ```
    Without the package argument, the system should still resolve to the app.
 

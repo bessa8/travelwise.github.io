@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Join my trip on TravelWise</title>
 <meta name="description" content="You're invited to collaborate on a TravelWise trip. Open the link to accept.">
-<meta name="robots" content="noindex,nofollow">
-
-<!-- Smart App Banner (iOS Safari). FILL IN <APP_STORE_ID> once published. -->
-<meta name="apple-itunes-app" content="app-id=<APP_STORE_ID>">
-
+<meta name="apple-itunes-app" content="app-id=6770280880">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="TravelWise">
 <meta property="og:title" content="Join my trip on TravelWise">
 <meta property="og:description" content="You're invited to collaborate on a TravelWise trip. Open the link to accept.">
-<meta property="og:image" content="https://www.travelwise.top/i/og-invite.png">
+<meta property="og:image" content="https://www.travelwise.pt/i/og-invite.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Join my trip on TravelWise">
 <meta name="twitter:description" content="You're invited to collaborate on a TravelWise trip. Open the link to accept.">
-<meta name="twitter:image" content="https://www.travelwise.top/i/og-invite.png">
-
+<meta name="twitter:image" content="https://www.travelwise.pt/i/og-invite.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#F5F1E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F1620" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" href="/favicon.png">
-<link rel="stylesheet" href="/i/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>try{var t=localStorage.getItem("tw-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <script>
   // GitHub Pages serves this file for any unmatched path. If the path looks
   // like an invite link (/i/<code>), let /i/script.js take over and render
@@ -32,6 +34,7 @@
   (function () {
     var isInvite = /^\/i\/[^\/?#]+\/?$/.test(window.location.pathname);
     document.documentElement.dataset.route = isInvite ? "invite" : "missing";
+    if (!isInvite) document.title = "Page not found · TravelWise";
   })();
 </script>
 <style>
@@ -40,84 +43,34 @@
   html[data-route="invite"] #page-missing { display: none !important; }
 </style>
 </head>
-<body>
-  <main class="card" id="invite-card" hidden>
-    <div class="brand">
-      <div class="logo" aria-hidden="true">✈️</div>
-      <span class="wordmark">TravelWise</span>
-    </div>
-
+<body class="center-page">
+  <main class="auth-card" id="invite-card" hidden>
+    <a class="brand" href="/"><img src="/assets/img/logo-96.png" width="36" height="36" alt=""><span>Travel<i>Wise</i></span></a>
     <h1>You're invited to a trip on TravelWise</h1>
-    <p class="lede">Open the app to accept your invite, or install TravelWise to get started.</p>
-
-    <div class="code-row">
-      <span class="code-label">Invite code</span>
-      <code class="code-pill" id="code-pill">·</code>
-    </div>
-
-    <a id="open-app" class="btn btn-primary" href="#">Open in TravelWise</a>
-
+    <p>Open the app to accept your invite, or install TravelWise to get started.</p>
+    <div class="code-row"><span class="code-label">Invite code</span><code class="code-pill" id="code-pill">·</code></div>
+    <a id="open-app" class="btn btn-block" href="#">Open in TravelWise</a>
     <div class="stores" id="stores">
-      <a id="app-store" class="store-btn" href="https://apps.apple.com/app/id<APP_STORE_ID>"
-         aria-label="Download on the App Store">
-        <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-          <rect x="0.5" y="0.5" width="119" height="39" rx="6" fill="#000" stroke="#A6A6A6"/>
-          <path fill="#fff" d="M33.8 19.5c0-2 1.6-3 1.7-3-.9-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.3 2-1.4 2.5-.4 6.1.9 8.1.7 1 1.5 2.1 2.5 2 1 0 1.4-.6 2.6-.6s1.5.6 2.6.6c1.1 0 1.8-1 2.4-2 .8-1.1 1.1-2.2 1.1-2.3-.1-.1-2-.8-2-3.2zM31.9 13.6c.5-.6.9-1.5.8-2.4-.8 0-1.7.5-2.3 1.2-.5.5-.9 1.4-.8 2.3.9.1 1.8-.5 2.3-1.1z"/>
-          <text x="44" y="17" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="8">Download on the</text>
-          <text x="44" y="30" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="14" font-weight="600">App Store</text>
-        </svg>
-      </a>
-      <a id="play-store" class="store-btn" href="https://play.google.com/store/apps/details?id=com.osw.travelwise"
-         aria-label="Get it on Google Play">
-        <svg viewBox="0 0 135 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-          <rect x="0.5" y="0.5" width="134" height="39" rx="6" fill="#000" stroke="#A6A6A6"/>
-          <path d="M14 11.3v17.4c0 .6.3 1.2.8 1.5l9.6-10.2-9.6-10.2c-.5.3-.8.9-.8 1.5z" fill="#EA4335"/>
-          <path d="M27.6 16.7l-3-1.7-2.6 2.8 2.6 2.8 3-1.7c1-.5 1-2 0-2.2z" fill="#FBBC04"/>
-          <path d="M15.6 9.8c-.4-.2-.9-.2-1.3 0l9.6 10.2 2.6-2.8L15.6 9.8z" fill="#34A853"/>
-          <path d="M14.3 30.2c.4.2.9.2 1.3 0l10.9-7.4-2.6-2.8L14.3 30.2z" fill="#4285F4"/>
-          <text x="40" y="17" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="8">GET IT ON</text>
-          <text x="40" y="30" fill="#fff" font-family="-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="14" font-weight="600">Google Play</text>
-        </svg>
-      </a>
+      <a id="app-store" class="store" href="https://apps.apple.com/app/id6770280880" aria-label="Download on the App Store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small><strong>App Store</strong></span></a>
+      <a id="play-store" class="store" href="https://play.google.com/store/apps/details?id=com.osw.travelwise" aria-label="Get it on Google Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg><span><small>Get it on</small><strong>Google Play</strong></span></a>
     </div>
-
-    <footer class="foot">
-      <a href="/">What is TravelWise?</a>
-      <span aria-hidden="true">·</span>
-      <a href="/termsOfUse.html">Terms</a>
-      <span aria-hidden="true">·</span>
-      <a href="/privacy.html">Privacy</a>
-    </footer>
+    <footer class="foot"><a href="/">What is TravelWise?</a><span aria-hidden="true">·</span><a href="/termsOfUse.html">Terms</a><span aria-hidden="true">·</span><a href="/privacy.html">Privacy</a></footer>
   </main>
 
-  <main class="card" id="not-found" hidden>
-    <div class="brand">
-      <div class="logo" aria-hidden="true">✈️</div>
-      <span class="wordmark">TravelWise</span>
-    </div>
+  <main class="auth-card" id="not-found" hidden>
+    <a class="brand" href="/"><img src="/assets/img/logo-96.png" width="36" height="36" alt=""><span>Travel<i>Wise</i></span></a>
     <h1>Invite not found</h1>
-    <p class="lede">This invite link looks invalid or incomplete. Ask whoever shared the trip with you to send it again.</p>
-    <a class="btn btn-primary" href="/">Back to TravelWise</a>
-    <footer class="foot">
-      <a href="/termsOfUse.html">Terms</a>
-      <span aria-hidden="true">·</span>
-      <a href="/privacy.html">Privacy</a>
-    </footer>
+    <p>This invite link looks invalid or incomplete. Ask whoever shared the trip with you to send it again.</p>
+    <a class="btn" href="/">Back to TravelWise</a>
+    <footer class="foot"><a href="/termsOfUse.html">Terms</a><span aria-hidden="true">·</span><a href="/privacy.html">Privacy</a></footer>
   </main>
 
-  <main class="card" id="page-missing">
-    <div class="brand">
-      <div class="logo" aria-hidden="true">✈️</div>
-      <span class="wordmark">TravelWise</span>
-    </div>
+  <main class="auth-card" id="page-missing">
+    <a class="brand" href="/"><img src="/assets/img/logo-96.png" width="36" height="36" alt=""><span>Travel<i>Wise</i></span></a>
     <h1>Page not found</h1>
-    <p class="lede">We couldn't find that page. Head back to the homepage to keep exploring.</p>
-    <a class="btn btn-primary" href="/">Back to TravelWise</a>
-    <footer class="foot">
-      <a href="/termsOfUse.html">Terms</a>
-      <span aria-hidden="true">·</span>
-      <a href="/privacy.html">Privacy</a>
-    </footer>
+    <p>We couldn't find that page. Head back to the homepage to keep exploring.</p>
+    <a class="btn" href="/">Back to TravelWise</a>
+    <footer class="foot"><a href="/termsOfUse.html">Terms</a><span aria-hidden="true">·</span><a href="/privacy.html">Privacy</a></footer>
   </main>
 
   <script src="/i/script.js"></script>
