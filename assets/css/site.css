@@ -177,7 +177,8 @@ a:hover{color:var(--pop)}
 .page-head .meta{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;margin-top:24px;font-size:14px;color:var(--ink-soft)}
 
 /* ---- Legal layout ---- */
-.legal{display:grid;gap:40px;padding:48px var(--pad) 88px}
+.legal{display:grid;grid-template-columns:minmax(0,1fr);gap:40px;padding:48px var(--pad) 88px}
+.legal>*{min-width:0}
 @media (min-width:980px){.legal{grid-template-columns:260px minmax(0,1fr);gap:72px}}
 .toc{font-size:14px}
 @media (min-width:980px){.toc{position:sticky;top:96px;align-self:start;max-height:calc(100vh - 120px);overflow:auto}}
@@ -250,3 +251,25 @@ button.lang{background:none;cursor:pointer}
 .foot .lang{min-height:32px;min-width:32px;padding:0 10px;font-size:12px}
 .auth-card button.lang{width:auto;min-height:32px;padding:0 12px;background:none;border:1px solid var(--line);color:var(--ink);font:600 12px/1 var(--sans);letter-spacing:.06em}
 .auth-card button.lang:hover{background:none;border-color:var(--ink);color:var(--ink)}
+
+/* Very narrow phones (320–360px): keep the header on one line */
+@media (max-width:380px){
+  .site-header .wrap{gap:8px}
+  .brand{font-size:19px;gap:8px}
+  .brand img{width:32px;height:32px}
+  .tools{margin-left:0;gap:2px}
+  .icon-btn{width:40px;height:40px}
+  .lang{min-width:40px;padding:0 8px}
+}
+
+/* Legal tables become stacked cards on phones (no sideways scrolling) */
+@media (max-width:700px){
+  .prose .table-wrap{overflow:visible;border:0;border-radius:0;margin:16px 0 24px}
+  .prose table{min-width:0;display:block}
+  .prose thead{display:none}
+  .prose tbody,.prose tr,.prose td{display:block}
+  .prose tr{border:1px solid var(--line);border-radius:var(--r-inner);padding:10px 14px;margin:0 0 12px;background:var(--surface)}
+  .prose tr:last-child{border-bottom:1px solid var(--line)}
+  .prose td{border:0;padding:6px 0;font-size:15px}
+  .prose td::before{content:attr(data-label);display:block;font:600 11px/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:2px}
+}
